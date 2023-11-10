@@ -11,7 +11,7 @@ export const callbackRouter = Router();
 
 // Serve HTML index page with callback link
 callbackRouter.get('/', asyncWrapOrError(async (req, res) => {
-  const link = await requestClient.generateAuthLink(`http://localhost:${CONFIG.PORT}/callback`);
+  const link = await requestClient.generateAuthLink(`http://ec2-18-192-104-214.eu-central-1.compute.amazonaws.com:${CONFIG.PORT}/callback`);
   // Save token secret to use it after callback
   req.session.oauthToken = link.oauth_token;
   req.session.oauthSecret = link.oauth_token_secret;
