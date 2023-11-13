@@ -12,10 +12,8 @@ export const callbackRouter = Router();
 callbackRouter.get('/', asyncWrapOrError(async (req, res) => {
   const link = await requestClient.generateAuthLink(`http://localhost:${CONFIG.PORT}/callback`);
 
-  console.log(link.url);
-
-
-  // Save token secret to use it after callback
+  // Save oauth_token_secret ro Redis with oauth_token as a key
+  // return oauth_token to the FE
   req.session.oauthToken = link.oauth_token;
   req.session.oauthSecret = link.oauth_token_secret;
 
@@ -30,6 +28,8 @@ callbackRouter.get('/callback', asyncWrapOrError(async (req, res) => {
     return;
   }
 
+
+
   const token = req.query.oauth_token as string;
   const verifier = req.query.oauth_verifier as string;
   const savedToken = req.session.oauthToken;
@@ -41,8 +41,10 @@ callbackRouter.get('/callback', asyncWrapOrError(async (req, res) => {
     return;
   }
 
+  console.log(savedToken)
+
   // Build a temporary client to get access token
-  const tempClient = new TwitterApi({ ...TOKENS, accessToken: savedToken, accessSecret: savedSecret });
+  const tempClient = new TwitterApi({ ...TOKENS, accessToken: req.session.oauthToken, accessSecret: req.session.oauthSecret });
 
   // Ask for definitive access token
   const { accessToken, accessSecret, screenName, userId } = await tempClient.login(verifier);
@@ -50,8 +52,8 @@ callbackRouter.get('/callback', asyncWrapOrError(async (req, res) => {
 
 
 
-  //example
-  await runExampleWithTheSetOfUserCredentials();
+  //example of how to work with the permanent credentials
+  // await runExampleWithTheSetOfUserCredentials();
 
 
 
