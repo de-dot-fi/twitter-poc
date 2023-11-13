@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { TwitterApi } from 'twitter-api-v2';
+import {TwitterApi} from "twitter-api-v2-defi";
 import { requestClient, TOKENS } from '../config';
 import { asyncWrapOrError } from '../utils';
 
