@@ -53,7 +53,7 @@ callbackRouter.get('/callback', asyncWrapOrError(async (req, res) => {
 
 
   //example of how to work with the permanent credentials
-   await runExampleWithTheSetOfUserCredentials();
+  // await runExampleWithTheSetOfUserCredentials();
 
 
 
