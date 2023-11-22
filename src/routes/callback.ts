@@ -53,7 +53,7 @@ callbackRouter.get('/callback', asyncWrapOrError(async (req, res) => {
 
 
   //example of how to work with the permanent credentials
-  // await runExampleWithTheSetOfUserCredentials();
+   await runExampleWithTheSetOfUserCredentials();
 
 
 
@@ -64,21 +64,24 @@ export const runExampleWithTheSetOfUserCredentials = async () => {
 
   const users = [
     {
-      key: '1471179990419001351-q8g1NqHb3C6XntKhIvocT5CFvkt4Lm',
-      secret: 'yPQv3zssnNiaNCWGegrXai5IWCZ4K0BvVZgZICwC7rWt9'
+      key: '1652736899331633152-AEOR2ZJWZq66QOo5pIvEJLMpxAsDOy',
+      secret: 'SXgJ13f4PNrEweIBzEzIBS9sAX7gYhTglGWw1Jr1Rt578'
 
     },
     {
-      key: '1674367905356566532-9k1Prl6GUO3nNIuxC7qoImYubJtgy6',
-      secret: 'RZYFk5CaDg8uEPDKvSsBdF1DjnSiPPp02dNu1sRQjqI3l'
+      key: '1652736899331633152-AEOR2ZJWZq66QOo5pIvEJLMpxAsDOy',
+      secret: 'SXgJ13f4PNrEweIBzEzIBS9sAX7gYhTglGWw1Jr1Rt578'
+
     },
     {
-      key: '1311253812276088834-0bow2anfhFCzfsVTROPfB4yAgGFuaf',
-      secret: 'JiSyiyHVJ90REntQzN4cMTimTX8uMoRiZfqCz42N4kbuR'
+      key: '1652736899331633152-AEOR2ZJWZq66QOo5pIvEJLMpxAsDOy',
+      secret: 'SXgJ13f4PNrEweIBzEzIBS9sAX7gYhTglGWw1Jr1Rt578'
+
     },
     {
-      key: '1384651784606691332-AsrECe3G42rvjhJeDae67ifYxIV0Lh',
-      secret: 'LMEvDaoRxRnmr7Wpn2s9MewA8PGKtgmjh5r5o6eCk2dbJ'
+      key: '1652736899331633152-AEOR2ZJWZq66QOo5pIvEJLMpxAsDOy',
+      secret: 'SXgJ13f4PNrEweIBzEzIBS9sAX7gYhTglGWw1Jr1Rt578'
+
     },
   ]
 
