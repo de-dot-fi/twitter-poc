@@ -10,7 +10,11 @@ export const callbackRouter = Router();
 
 // Serve HTML index page with callback link
 callbackRouter.get('/', asyncWrapOrError(async (req, res) => {
-  const link = await requestClient.generateAuthLink(`http://localhost:${CONFIG.PORT}/callback`);
+
+  // ----for test site ---////
+
+  // const link = await requestClient.generateAuthLink(`http://localhost:${CONFIG.PORT}/callback`);
+  const link = await requestClient.generateAuthLink(`http://ec2-18-192-104-214.eu-central-1.compute.amazonaws.com:${CONFIG.PORT}/callback`);
 
   // Save oauth_token_secret ro Redis with oauth_token as a key
   // return oauth_token to the FE
